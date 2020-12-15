@@ -11,17 +11,23 @@
 	</parent>
 
 	<groupId>com.miacusso</groupId>
-	<artifactId>boardgames</artifactId>
+	<artifactId>board-games-spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>boardgames</name>
-	<description>Board Games backend project for Spring Boot</description>
+	<description>RESTFULL server written in Java using Spring Boot framework that serves Board Games web app.</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.miacusso</groupId>
+			<artifactId>board-games-db</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,12 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
 		</dependency>
 
 	</dependencies>
