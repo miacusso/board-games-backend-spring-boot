@@ -24,7 +24,7 @@ public class BoardgamesController {
 	public List<PlayerDBO> getPlayers(@PathVariable int game) {
 		GameDBO gameDBO = new GameDBO();
 		gameDBO.setId(game);
-		List<PlayerDBO> dbResponse = dbConnector.retrievePlayersForGame(gameDBO);
+		List<PlayerDBO> dbResponse = this.dbConnector.retrievePlayersForGame(gameDBO);
 		return dbResponse;
 	}
 
@@ -33,7 +33,7 @@ public class BoardgamesController {
 	public Map<String, Integer> getResultTable(@PathVariable int game) {
 		GameDBO gameDBO = new GameDBO();
 		gameDBO.setId(game);
-		Map<String, Integer> dbResponse = dbConnector.retrieveResultsCountForGame(gameDBO);
+		Map<String, Integer> dbResponse = this.dbConnector.retrieveResultsCountForGame(gameDBO);
 		return dbResponse;
 	}
 
@@ -41,7 +41,7 @@ public class BoardgamesController {
 	@PostMapping("/{game}/winner")
 	public String registerGameWinner(@PathVariable int game, @RequestBody GameResultBody gameResult) {
 		
-		dbConnector.insertGameResult(gameResult.getWinner().getId(), game);
+		this.dbConnector.insertGameResult(gameResult.getWinner().getId(), game);
 
 		return "OK";
 	}
@@ -53,7 +53,7 @@ public class BoardgamesController {
 		GameDBO gameDBO = new GameDBO();
 		gameDBO.setId(game);
 
-		dbConnector.removeResultsForGame(gameDBO);
+		this.dbConnector.removeResultsForGame(gameDBO);
 
 		return "OK";
 	}
